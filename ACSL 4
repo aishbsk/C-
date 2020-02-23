@@ -1,0 +1,131 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include <sstream>
+#include <algorithm>
+#include <cctype>
+#include <iomanip>
+#include <fstream>
+#include <cstdlib>
+
+using namespace std;
+
+int main() {
+    ifstream inputFile;
+
+
+
+    inputFile.open("s://Public/CS/ACSLsample/it.txt");
+    if (!inputFile) {
+        cout << "Unable to open file";
+        exit(1); // terminate with error
+    }
+    string x;
+
+ //   for(int k = 1; k<=5; k++){
+    while(getline(inputFile, x)){
+
+            int c;//space position
+
+            vector<string>line1;
+            vector<string>f;
+
+
+            c = x.find(' ');
+            string x1 = x.substr(0,c);
+            line1.push_back(x);
+            int size = line1.size();
+            //for(int q = 0; q<line1.size()+1; q++){
+                /*          for ( auto &s : line1)
+
+                 for ( auto &c : s ) c = toupper( c );
+
+                 */   //}
+
+            //ignore the 1st number
+            stringstream number(x1);
+            int num;
+            number >> num;
+            int p = num-1;
+
+
+
+
+            string words = x.substr(c+1,words.size()-1);
+            vector<string>w;
+
+
+            //delete the spaces
+            for(int var = 0; var<words.size(); var++){
+                if(words.compare(var,1," ")==0){
+                    int a = words.find(" ");
+                    words.erase(words.begin()+a);
+                }
+            }
+
+            for(auto& x: words){
+                x = toupper(x);}
+            //
+
+
+
+            // w.push_back(words);
+
+            //push the first letter
+            for(int q = 0; q<words.size()+1; q++){
+                //   for ( auto &s : w)
+
+                //      for ( auto &c : s ) c = toupper( c );
+                //  }
+
+                string r = words.substr(q,1);
+                w.push_back(r);
+                f.push_back(w[p]);
+                sort (w.begin(), w.end());
+            }
+
+
+            for(int i = 0; i<=p;i++){
+                f.erase(f.begin());
+            }
+            f.erase( unique( f.begin(), f.end() ), f.end() );
+
+            // }
+
+
+            /*
+             for(int k = 0; k<words.size();k++){
+             if(w[k]>
+             }
+             have nested loops.
+             one for loop size of array
+             one loop with regular size
+             */
+            //uppercase
+            for(int a =0; a<w.size(); a++){
+                cout<<w[a];
+            }
+            for(int a =0; a<f.size(); a++){
+                cout<<endl<<f[a];
+            }
+     cout<<endl;
+           //focus of program is to just
+
+        cout<<f.size()<<endl;
+            //}
+            line1.clear();
+            f.clear();
+            w.clear();
+            x.clear();
+            x1.clear();
+            words.clear();
+            c= 0;
+
+
+    }
+ //   }
+
+    inputFile.close();
+
+    return 0;
+}
