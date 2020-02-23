@@ -1,0 +1,69 @@
+//Aishwarya Balaji
+//Teacher: Ms. Patnaik
+//02/12/2018
+//Intro Into CS
+
+
+
+
+
+/*
+using namespace std;
+#include<iostream>
+
+int main(){
+
+/*You can use 2D Arrays for rows and columns.
+it is initialized by:
+int a[5][9];
+Where the 5 represents the rows and the 9 represents the columns.
+*/
+//Here is a program that shows you how to use it: Multiplication Table
+/*
+int a[10][10];
+for(int i = 0; i<5; i++){
+    for(int j = 0; j<5; j++){
+    a[i][j]=(i+1)*(j+1);
+        cout<<a[i][j]<<'\t';
+    }
+cout<<endl;
+}
+}
+*/
+
+//Division Table
+
+//Aishwarya Balaji
+//2D Arrays Project
+
+#include<iostream>
+using namespace std;
+
+int main() {
+  int s,row,col;
+  cout<<"Enter Seed: ";
+  cin>>s;
+  double a[5][5];
+  a[0][0]=-1;
+  int n = s+5;
+
+  cout<<endl;
+  for (int i = s; i<n; i++){
+      for(int j = s; j<n; j++){
+          a[i][j]=(j)/(i);
+          cout<<a[i][j]<<"   ";
+          if(j==n-1&&i==n-1){
+              cout<<endl;
+               cout<<"Input the row you want (1-5): ";
+               cin>>row;
+               cout<<"Input the column you want (1-5): ";
+               cin>>col;
+               cout<<"It is: "<<a[row+s-1][col+s-1];
+              }
+      }
+      cout<<endl;
+  }
+}
+
+
+
